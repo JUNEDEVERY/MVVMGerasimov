@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid Margin="0,0,1,2" Background="Azure">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <GroupBox Header="Выберите арифметическую операцию">
+                <ComboBox ItemsSource="{Binding cmbItems}" SelectedIndex="{Binding cbSelectedIndex}" Name="cmbOperation" SelectionChanged="cmbOperation_SelectionChanged">
+
+                </ComboBox>
+            </GroupBox>
+            <StackPanel Margin="0 15 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Text="{Binding tbFirst}" Name="tbFirst" Width="50"></TextBox>
+                <TextBlock Text="{Binding cbSelectedIndex2}" Name="tbSign"  Margin="15 0 15 0"></TextBlock>
+                <TextBox x:Name="tbSecond" Text="{Binding tbSecond}" Width="50"></TextBox>
+
+            </StackPanel>
+            <StackPanel Margin="0 15 0 0">
+                <Button Command="{Binding Command}" Content="Вычислить" Name="btnResult"></Button>
+            </StackPanel>
+
+            <StackPanel>
+                <GroupBox Header="Результат вычисления">
+                    <TextBlock Text="{Binding Result}" Name="tbResult"></TextBlock>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
